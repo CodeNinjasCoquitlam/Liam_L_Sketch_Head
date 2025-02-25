@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class Destroyer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [Header("pltfrm Object")]
+        public GameObject platform;
+        float yPos = 0;
+    [Header("Game Over UI Canvas Object")]
+        public GameObject gameOverCanvas;
+   public void OnTriggerEnter2D(Collider2D collision)
     {
+        GameObject.Find("DoodleHead").SetActive(false);
+        GameController.GameOver();
+
         
+
+
+       
     }
 
-    // Update is called once per frame
-    void Update()
+    public static void GameOver()
     {
-        
+        instance.gameOverCanvas.SetActive(true);
     }
 }
